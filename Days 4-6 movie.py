@@ -9,6 +9,8 @@ urlretrieve(movie_data, movies_csv)
 Movie = namedtuple('Movie', 'title year score')
 
 def get_movies_by_director(data=movies_csv):
+    """Extracts all movies from csv and stores them in a dictionary
+       where keys are directors, and values is a list of movies (named tuples)"""
     directors = defaultdict(list)
     with open(data, encoding='utf-8') as f:
         for line in csv.DictReader(f):
